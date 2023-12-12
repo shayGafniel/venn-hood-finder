@@ -1,0 +1,9 @@
+node_modules/
+dist/
+build/
+*.log
+# .env should be ignored in production systems.
+.vscode/
+.DS_Store
+Thumbs.db
+package-lock.json

@@ -4,7 +4,7 @@
 ## Installation and Usage
 1. Clone the repository
 ```bash
-    git clone 
+    git clone https://github.com/shayGafniel/venn-hood-finder.git
 ```
 
 2. Install dependencies:
@@ -14,7 +14,7 @@
 
 3. Run a local instance of mongoDB on your local machine. By default the app will look for an instance at ```mongodb://localhost:27017/venn``` but you can provide a custom URI as an environment variable under ```MONGO_URI```. 
 
-    3.1. If you don't have an instance of the `neighborhood` collection under `X` db, then you can run `add name of script` to initiate the collection and data.
+    3.1. If you don't have an instance of the `neighborhood` collection under `venn` db, then you can run `npm run loadDb` to initiate the collection and data.
     
 4. To run the project, use the following command:
 ```bash

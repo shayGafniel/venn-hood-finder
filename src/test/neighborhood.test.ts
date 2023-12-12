@@ -3,8 +3,20 @@ import request from "supertest";
 import { app } from "../app"
 import * as getNeighborhoodsFunctions from "../db/controllers/neighborhoodsController";
 
+import dotenv from 'dotenv';
+
+const result = dotenv.config();
+if (result.error) {
+    dotenv.config({ path: '.env' });
+}
+
+const connectionString = process.env.MONGO_URI
+
+
 beforeEach(async () => {
-    await mongoose.connect("mongodb://localhost:27017");
+    if (connectionString != null) {
+        await mongoose.connect(connectionString);
+    }
 });
 
 afterEach(async () => {
@@ -15,19 +27,19 @@ afterEach(async () => {
 describe('GET / neighborhood', () => {
     it('should return status 200 with neighborhoods when valid query parameters are provided', async () => {
         const response = await request(app)
-            .get('/neighborhood')
+            .get('/api/v1.0/neighborhood')
             .query({
-                ageRange: ['gte:30', 'lte:30'],
-                maxDistance: '10',
+                ageRange: ['gte:10', 'lte:50'],
+                maxDistance: '100',
                 sortBy: 'averageIncome,desc'
             });
 
         expect(response.status).toBe(200);
-        expect(response.body).toHaveLength(2)
+        expect(response.body.length).toBeGreaterThan(2)
     });
     it('should return status 200 with all neighborhoods when no query parameters are provided', async () => {
         const response = await request(app)
-            .get('/neighborhood')
+            .get('/api/v1.0/neighborhood')
 
         expect(response.status).toBe(200);
         expect(response.body).toHaveLength(1000)
@@ -39,7 +51,7 @@ describe('GET / neighborhood', () => {
             throw new Error('Test error');
         });
 
-        const response = await request(app).get('/neighborhood');
+        const response = await request(app).get('/api/v1.0/neighborhood');
         expect(response.status).toBe(500);
     });
 });

@@ -15,8 +15,8 @@ describe('when data is valid getNeighborhoodsByParams', () => {
 
         sinon.stub(neighborhoodModel, 'find').callsFake(findStub);
 
-        const filters = { 'average age': { $gte: 30, $lte: 30 } };
-        const sort = { 'distance from city center': 1 as SortOrder };
+        const filters = { 'averageAge': { $gte: 30, $lte: 30 } };
+        const sort = { 'distanceFromCityCenter': 1 as SortOrder };
 
         expect(await getNeighborhoodsByParams(filters, sort)).toEqual(mockNeighborhoods);
     });

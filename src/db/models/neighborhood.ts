@@ -13,6 +13,6 @@ const neighborhoodSchema = new Schema({
 }, { collection: "neighborhoods" });
 
 
-neighborhoodSchema.index({ averageAge: 1, "distance from city center": 1 });
+neighborhoodSchema.index({ averageAge: 1, "distanceFromCityCenter": 1 });
 
 export default model('Neighborhood', neighborhoodSchema);

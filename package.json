@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node-dev src/server.ts",
     "test": "jest",
-    "loadDb": "node scripts/load-data-to-db-js"
+    "loadDb": "ts-node scripts/load-data-to-db.ts"
   },
   "keywords": [],
   "author": "",

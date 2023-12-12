@@ -42,12 +42,13 @@ router.get('/', validateGetNeighborhoodsQueryParams, async (req: Request, res: R
     const { ageRange, maxDistance, sortBy } = req.query
     let filters: { [key: string]: { [key: string]: number } } = {}
     let sort: { [key: string]: SortOrder } = {}
+
     if (ageRange) {
-      filters = { ...parseRangeFilter("average age", ageRange as string) }
+      filters = { ...parseRangeFilter("averageAge", ageRange as string) }
     }
 
     if (maxDistance) {
-      filters['distance from city center'] = { '$lte': parseInt(maxDistance as string, 10) }
+      filters['distanceFromCityCenter'] = { '$lte': parseInt(maxDistance as string, 10) }
     }
 
     if (sortBy) {

@@ -12,7 +12,7 @@
  npm install
  ```
 
-3. Run a local instance of mongoDB on your local machine. By default the app will look for an instance at ```mongodb://localhost:27017``` but you can provide a custom URI as an environment variable under ```MONGO_URI```. 
+3. Run a local instance of mongoDB on your local machine. By default the app will look for an instance at ```mongodb://localhost:27017/venn``` but you can provide a custom URI as an environment variable under ```MONGO_URI```. 
 
     3.1. If you don't have an instance of the `neighborhood` collection under `X` db, then you can run `add name of script` to initiate the collection and data.
     

@@ -9,7 +9,7 @@ const router = express.Router()
 
 /**
  * @swagger
- * /neighborhood/:
+ * /api/v1.0/neighborhood/:
  *   get:
  *     summary: Retrieve neighborhoods based on specified filters.
  *     description: |
